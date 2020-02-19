@@ -1,10 +1,16 @@
-name: 'Your name here'
-description: 'Provide a description here'
-author: 'Your name or organization here'
+name: 'AWS Batch "Render Task Definition" Action for GitHub Actions'
+description: 'Inserts a container image URI into a container definition in an AWS Batch job definition JSON file, creating a new file.'
+author: 'Felix Schidler'
 inputs:
-  myInput:              # change this
-    description: 'input description here'
-    default: 'default value if applicable'
+  job-definition:
+    description: 'The path to the Batch job definition JSON file'
+    required: true
+  image:
+    description: 'The URI of the container image to insert into the Batch job definition'
+    required: true
+outputs:
+  job-definition:
+    description: 'The path to the rendered job definition file'
 runs:
   using: 'node12'
   main: 'dist/index.js'
