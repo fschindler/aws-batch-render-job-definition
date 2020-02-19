@@ -18,8 +18,9 @@ async function run(): Promise<void> {
         `Job definition file does not exist: ${jobDefinitionFile}`
       )
     }
-    const buffer = fs.readFileSync(jobDefPath)
-    const jobDefContents = JSON.parse(buffer.toString())
+
+    const fileContents = fs.readFileSync(jobDefPath, 'utf8')
+    const jobDefContents = JSON.parse(fileContents)
 
     // Insert the image URI
     if (
